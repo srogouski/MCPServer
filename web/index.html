@@ -1,0 +1,66 @@
+<!doctype html>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>MCP Demo</title>
+  <style>
+    :root{--bg:#f7f9fb;--card:#ffffff;--muted:#6b7280;--accent:#2563eb}
+    body{font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial; background:var(--bg); margin:0; padding:24px}
+    .container{max-width:900px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    h1{font-size:20px;margin:0}
+    .card{background:var(--card);border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(15,23,42,0.06)}
+    .controls{margin-bottom:6px}
+    .form-row{display:grid;grid-template-columns:140px 1fr 220px;gap:16px;align-items:center}
+    .btn-group{display:flex;gap:8px;justify-content:flex-end}
+    .btn-group button{min-width:110px;display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:6px}
+    /* ensure secondary buttons match primary sizing but with muted style */
+    button.secondary{background:#e5e7eb;color:#111;border:none}
+    input[type="text"]{padding:8px;border:1px solid #e5e7eb;border-radius:6px;font-size:14px}
+    button{background:var(--accent);color:white;border:none;padding:8px 12px;border-radius:6px;cursor:pointer}
+    button.secondary{background:#e5e7eb;color:#111}
+    .settings{margin-top:12px;font-size:13px;color:var(--muted)}
+    #log{margin-top:12px;background:#0f1724;color:#e6eef8;padding:12px;border-radius:8px;height:75vh;overflow:auto;font-family:Consolas, Monaco, monospace;font-size:13px}
+    .log-entry{padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
+    label.small{font-size:13px;color:var(--muted);margin-right:6px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>MCP API Demo</h1>
+      <div style="font-size:13px;color:var(--muted)">Local demo — WebSocket / JSON tools</div>
+    </header>
+
+    <div class="card">
+      <div class="controls">
+        <div class="form-row">
+          <label class="small">API Path/URL:</label>
+          <input id="apiPath" value="/status" />
+          <div class="btn-group">
+            <button id="callApi">Call API</button>
+            <button id="clearResults" class="secondary">Clear Results</button>
+          </div>
+        </div>
+
+        <div class="form-row" style="margin-top:12px">
+          <label class="small">API Base:</label>
+          <input id="apiBase" placeholder="(none)" />
+          <div class="btn-group">
+            <button id="saveSettings">Save</button>
+            <button id="resetSettings" class="secondary">Reset</button>
+          </div>
+        </div>
+
+        <div style="margin-top:8px;color:var(--muted);font-size:12px">Base read from server env <code>EXTERNAL_API_BASE</code> by default; save stores a local override in your browser.</div>
+      </div>
+
+      <div id="status" style="margin-top:12px;color:var(--muted)">Connecting...</div>
+      <div id="log" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

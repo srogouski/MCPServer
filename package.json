@@ -1,0 +1,16 @@
+{
+  "name": "mcp-server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "client": "node client.js",
+    "demo": "node demo.js",
+    "web": "node web_server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "ws": "^8.13.0",
+    "pdfkit": "^0.13.0"
+  }
+}
